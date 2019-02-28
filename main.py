@@ -29,7 +29,9 @@ def verticalArray(pictures):
             aux = []
             arrayVert = []
             aux.append(i)
-            arrayVert.append(pictures[i])
+            res = pictures[i]
+            resaux = res[2:] 
+            arrayVert.append(resaux)
             resultFinal.append(aux)
             resultFinal.append(arrayVert)
         i = i + 1
