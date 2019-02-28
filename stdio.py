@@ -29,8 +29,8 @@ def read_input(filename):
     # Reading by line
     next_by_line = []
     with open(filename) as f:
-        first_line = [int(val) for val in f.readline().split()]
-        for i in range(first_line[0]):
+        first_line = int(f.readline())
+        for i in range(first_line):
             next_by_line.append(f.readline()[:-1].split(' '))
 
     return first_line, np.array(next_by_line), np.zeros(shape=first_line)
