@@ -11,16 +11,12 @@ FILENAME_OUTPUT_BASE = 'output/' + FILENAME
 
 def create_hash(pics):
     result = {}
-    i = 0
-    while i < len(pics):
-        j = 2
-        while j < len(pics[i]):
-            if pics[i][j] not in result:
-                result[pics[i][j]] = []
-            result[pics[i][j]].append(i)
-            j = j+1
-        i=i+1
-    return result
+    for pic in pics:
+        for tag in pic[1]:
+            if tag not in result:
+                result[tag] = []
+            result[tag] = result[tag] + pic[0]
+
 
 def separateArray(pics, variable):
     i = 0
@@ -121,19 +117,23 @@ def greedy_all_pictures_equal():
 
 def greedy():
     n, pictures, used = read_input(FILENAME_INPUT)
-    h, v = separate_h_v(pictures, n)
-    slides = generate_slides(h, v)
-    next_common = 0
-    used = np.zeros_like(slides)
-    used[next_common] = 1
-    res = [next_common]
-    while True:
-        next_common = get_next_common_tag(pictures, slides[next_common], n, used)
-        if not next_common:
-            break
-        res.append(next_common)
-        used[next_common] = 1
-    # write(res)
-    print(res)
+    horizontal = separateArray(pictures, 'H')
+    vertical = separateArray(pictures, 'V')
+    mez = random_merge_v_array(horizontal, vertical)
+    print(create_hash(mez))
+    #h, v = separate_h_v(pictures, n)
+    #slides = generate_slides(h, v)
+    #next_common = 0
+    #used = np.zeros_like(slides)
+    #used[next_common] = 1
+    #res = [next_common]
+    #while True:
+    #    next_common = get_next_common_tag(pictures, slides[next_common], n, used)
+    #    if not next_common:
+    #        break
+    #    res.append(next_common)
+    #    used[next_common] = 1
+    ## write(res)
+    #print(res)
 
 greedy()
