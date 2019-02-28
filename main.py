@@ -18,6 +18,22 @@ def create_hash(pics):
         i=i+1
     return result
 
+def verticalArray(pictures):
+    arrayVert = []
+    resultFinal = []
+    aux = []
+    i = 0
+    while i < len(pictures):
+        j = 0
+        if pictures[i][0] == "V":
+            aux = []
+            arrayVert = []
+            aux.append(i)
+            arrayVert.append(pictures[i])
+            resultFinal.append(aux)
+            resultFinal.append(arrayVert)
+        i = i + 1
+    return resultFinal
 
 def write(matrix):
     filename_output = FILENAME_OUTPUT_BASE + time.strftime("%H%M%S")
@@ -35,7 +51,9 @@ def get_next_common_tag(matrix, id, n, pictures, used):
 def greedy():
     n, pictures, used = read_input(FILENAME_INPUT)
     res = [0]
-    hash = create_hash(pictures)
+    #hash = create_hash(pictures)
+    arrayVerticalRes = verticalArray(pictures)
+    print(arrayVerticalRes)
 
 
 greedy()
