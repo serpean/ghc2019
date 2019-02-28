@@ -1,5 +1,6 @@
 from stdio import read_input, write_output
 from random import randint
+
 import numpy as np
 import time
 
@@ -121,6 +122,8 @@ def greedy():
     vertical = separateArray(pictures, 'V')
     mez = random_merge_v_array(horizontal, vertical)
     print(create_hash(mez))
+    scoreNum = countDuplicates(mez)
+    print(scoreNum)
     #h, v = separate_h_v(pictures, n)
     #slides = generate_slides(h, v)
     #next_common = 0
