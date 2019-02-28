@@ -35,7 +35,7 @@ def get_next_common_tag(matrix, id, n, pictures, used):
 def greedy():
     n, pictures, used = read_input(FILENAME_INPUT)
     res = [0]
-    print(create_hash(pictures))
+    hash = create_hash(pictures)
 
 
 greedy()
