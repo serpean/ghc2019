@@ -18,24 +18,21 @@ def create_hash(pics):
         i=i+1
     return result
 
-def verticalArray(pictures):
-    arrayVert = []
-    resultFinal = []
-    aux = []
+def verticalArray(pics):
     i = 0
-    while i < len(pictures):
-        j = 0
-        if pictures[i][0] == "V":
-            aux = []
-            arrayVert = []
-            aux.append(i)
-            res = pictures[i]
-            resaux = res[2:] 
-            arrayVert.append(resaux)
-            resultFinal.append(aux)
-            resultFinal.append(arrayVert)
+    result = []
+    while i < len(pics):
+        if pics[i][0] == 'V':
+            j = 2
+            aux = [[i]]
+            app = []
+            while j < len(pics[i]):
+                app.append(pics[i][j])
+                j = j + 1
+            aux.append(app)
+            result.append(aux)
         i = i + 1
-    return resultFinal
+    return result
 
 
 def gethorizont(pics):
