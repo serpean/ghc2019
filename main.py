@@ -18,11 +18,11 @@ def create_hash(pics):
         i=i+1
     return result
 
-def verticalArray(pics):
+def separateArray(pics, variable):
     i = 0
     result = []
     while i < len(pics):
-        if pics[i][0] == 'V':
+        if pics[i][0] == variable:
             j = 2
             aux = [[i]]
             app = []
@@ -69,9 +69,9 @@ def greedy():
     n, pictures, used = read_input(FILENAME_INPUT)
     res = [0]
     #hash = create_hash(pictures)
-    arrayVerticalRes = verticalArray(pictures)
-    horizontal = gethorizont(pictures)
-    print(arrayVerticalRes)
+    arrayVerticalRes = separateArray(pictures, 'V')
+    horizontal = separateArray(pictures, 'H')
+    print(horizontal)
 
 
 greedy()
