@@ -1,4 +1,5 @@
 from stdio import read_input, write_output
+from random import randint
 import time
 
 FILENAME_INPUT = 'input/a_example.txt'
@@ -50,6 +51,23 @@ def gethorizont(pics):
             result.append(aux)
         i=i+1
     return result
+
+def merge_v(p1, p2):
+    #input [[id], [cat, dog, beach]]
+    common=set(p1[1]).union(set(p2[1]))
+    return list([p1[0]+p2[0],list(common)])
+
+def random_merge_v_array(h_array, v_array):
+    print(v_array)
+    if(len(v_array)<2):
+        return h_array
+    value_in=v_array[0]
+    value_in
+    value_ran=v_array[randint(1, len(v_array)-1)]
+    h_array.append(merge_v(value_in, value_ran))
+    v_array.remove(value_in)
+    v_array.remove(value_ran)
+    return random_merge_v_array(h_array, v_array)
 
 
 def write(matrix):
