@@ -36,29 +36,12 @@ def separateArray(pics, variable):
     return result
 
 
-def gethorizont(pics):
-    i=0
-    result = []
-    while i < len(pics):
-        if pics[i][0] == 'H':
-            j = 2
-            aux = [[i]]
-            app = []
-            while j < len(pics[i]):
-                app.append(pics[i][j])
-                j=j+1
-            aux.append(app)
-            result.append(aux)
-        i=i+1
-    return result
-
 def merge_v(p1, p2):
     #input [[id], [cat, dog, beach]]
     common=set(p1[1]).union(set(p2[1]))
     return list([p1[0]+p2[0],list(common)])
 
 def random_merge_v_array(h_array, v_array):
-    print(v_array)
     if(len(v_array)<2):
         return h_array
     value_in=v_array[0]
@@ -87,9 +70,10 @@ def greedy():
     n, pictures, used = read_input(FILENAME_INPUT)
     res = [0]
     #hash = create_hash(pictures)
-    arrayVerticalRes = separateArray(pictures, 'V')
+    vertical = separateArray(pictures, 'V')
     horizontal = separateArray(pictures, 'H')
-    print(horizontal)
+    mez=random_merge_v_array(horizontal, vertical)
+    print(mez)
 
 
 greedy()
