@@ -31,10 +31,9 @@ def read_input(filename):
     with open(filename) as f:
         first_line = [int(val) for val in f.readline().split()]
         for i in range(first_line[0]):
-            next_by_line.append(f.readline().split(' '))  # Use list or .split(' ')
-    next_by_line = np.array(next_by_line)
+            next_by_line.append(f.readline()[:-1].split(' '))
 
-    return first_line, next_by_line
+    return first_line, np.array(next_by_line), np.zeros(shape=first_line)
 
 
 def write_output(filename, matrix):
