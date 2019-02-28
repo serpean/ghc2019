@@ -1,8 +1,9 @@
 from stdio import read_input, write_output
 from random import randint
+from score import countDuplicates
 import time
 
-FILENAME_INPUT = 'input/a_example.txt'
+FILENAME_INPUT = 'input/c_memorable_moments.txt'
 FILENAME_OUTPUT_BASE = 'output/results'
 
 
@@ -73,7 +74,9 @@ def greedy():
     vertical = separateArray(pictures, 'V')
     horizontal = separateArray(pictures, 'H')
     mez=random_merge_v_array(horizontal, vertical)
-    print(mez)
+    #print(mez)
+    scoreNum = countDuplicates(mez)
+    print(scoreNum)
 
 
 greedy()
