@@ -37,6 +37,24 @@ def verticalArray(pictures):
         i = i + 1
     return resultFinal
 
+
+def gethorizont(pics):
+    i=0
+    result = []
+    while i < len(pics):
+        if pics[i][0] == 'H':
+            j = 2
+            aux = [[i]]
+            app = []
+            while j < len(pics[i]):
+                app.append(pics[i][j])
+                j=j+1
+            aux.append(app)
+            result.append(aux)
+        i=i+1
+    return result
+
+
 def write(matrix):
     filename_output = FILENAME_OUTPUT_BASE + time.strftime("%H%M%S")
     write_output(filename_output, matrix)
@@ -55,6 +73,7 @@ def greedy():
     res = [0]
     #hash = create_hash(pictures)
     arrayVerticalRes = verticalArray(pictures)
+    horizontal = gethorizont(pictures)
     print(arrayVerticalRes)
 
 
