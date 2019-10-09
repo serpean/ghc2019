@@ -1,9 +1,7 @@
-# TODO IMPLEMENT SCORE FUNCTION
-import numpy as np
-
 def score(filename):
     lines = open(filename).readlines()
     return lines
+
 
 def countDuplicates(arrayCombined):
     num = 0
@@ -14,6 +12,7 @@ def countDuplicates(arrayCombined):
         num = num + transformToArray(arrayCombined[i], arrayCombined[j])
         i=i+1
     return num    
+
 
 def transformToArray(p1, p2):
     arrayRes = set(p1[1]).intersection(set(p2[1]))
