@@ -1,4 +1,4 @@
-from stdio import read_input, write_output
+from lib.stdio import read_input, write_output
 from random import randint
 
 import numpy as np
