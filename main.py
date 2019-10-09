@@ -1,6 +1,18 @@
 from lib.greedy import greedy
+from lib.utils import calculate_score
 from os import makedirs, listdir
 from shutil import rmtree
+
+
+def show_scores():
+    print('----------  SCORES ----------')
+    total = 0
+    for output_file in listdir('output/'):
+        score = calculate_score('input/' + output_file, 'output/' + output_file)
+        total += score
+        print(output_file, score)
+
+    print('\nTotal', total)
 
 
 def main():
@@ -18,6 +30,8 @@ def main():
 
         # Run the greedy approach
         greedy('input/' + input_file, output_file)
+
+    show_scores()
 
 
 if __name__ == '__main__':
